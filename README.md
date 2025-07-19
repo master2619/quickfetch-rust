@@ -1,114 +1,89 @@
-# QuickFetch
+ **QuickFetch-rust**  
 
-QuickFetch is a lightweight system information tool designed for Linux systems. It provides concise and visually appealing details about your system's configuration and usage. With QuickFetch, you can quickly access essential information such as the operating system, kernel version, hardware architecture, CPU and GPU specifications, memory usage, uptime, and package manager statistics.
+QuickFetch is a lightweight system information tool designed for Linux systems. It provides concise and visually appealing details about your system's configuration and usage. With QuickFetch, you can quickly access essential information such as the operating system, kernel version, hardware architecture, CPU and GPU specifications, memory usage, uptime, and package manager statistics.  
 
-## Features
+## **Features**  
+✔ Displays essential system information (OS, kernel, CPU, GPU, memory, uptime, etc.)  
+✔ Supports multiple display resolutions and desktop environments  
+✔ Detects and displays disk usage across multiple partitions  
+✔ Shows battery status and local IP  
+✔ Package Manager Detection (Only on Debian-based systems: `dpkg`, `apt`, `snap`, `flatpak`)  
+✔ Works on all major Linux distributions  
+✔ Lightweight and easy to install  
 
-### Sample Output
-
-```bash
-User: deepesh@HP-Linux-Laptop
-OS: Zorin OS 17.1
-Kernel: 6.9.3-x64v3-xanmod1
+### **Sample Output**  
+```
+User: hypr@HP-Linux
+OS: Manjaro Linux
+Kernel: 6.12.12-2-MANJARO
 Architecture: x86_64
 CPU: AMD Ryzen 3 3250U with Radeon Graphics (4 cores)
-GPU: Picasso/Raven 2 [Radeon Vega Series / Radeon Vega Mobile Series]
-Memory: 2.25GiB / 21.45GiB
-Uptime: 4:27:21
-Resolution: XWAYLAND0
-DE: Zorin
+GPU: No GPU found
+Memory: 2.81GiB / 21.45GiB
+Swap: 0.00GiB / 23.59GiB
+Uptime: 3:01:59
+Resolution: 1920x1080
+DE: Hyprland
 WM: Wayland
-WM Theme: 'Adwaita'
-Theme: 'ZorinBlue-Dark'
-Icons: 'ZorinBlue-Dark'
+WM Theme: Unknown
+Theme: Rose-Pine
+Icons: Tela-circle-pink
 Terminal: truecolor
-Dpkg: 2813 packages
-Apt: 2809 packages
-Snap: 7 packages
-Flatpak: 39 packages
+Terminal Font: CaskaydiaCove Nerd Font Mono 9
+System Font: Unknown
+Disk (/): 80.18GiB / 907.62GiB
+Disk (/home): 80.18GiB / 907.62GiB
+Disk (/var/cache): 80.18GiB / 907.62GiB
+Disk (/var/log): 80.18GiB / 907.62GiB
+Disk (/boot/efi): 0.00GiB / 0.29GiB
+Disk (/run/media/deepesh/DATA): 271.19GiB / 931.50GiB
+Local IP: 192.168.1.16
+Battery: 24.196787148594378% [Discharging]
+Locale: en_IN
 ```
+> **Note:** Debian-based Linux systems may also display package manager stats.
+---
 
-### Installation
+## **Installation**  
 
-#### Easy Installation
-
-To install QuickFetch with a single command:
-
+### **Easy Installation (Debian-Based Distros)**  
+For Debian-based distributions (Ubuntu, Zorin OS, Pop!_OS, Linux Mint, etc.), you can install QuickFetch using a single command:  
 ```bash
-sudo apt install curl && curl -sSL https://github.com/master2619/quickfetch/releases/download/release-2/installer.sh | sudo sh
+sudo apt install curl && curl -sSL https://github.com/master2619/quickfetch-rust/releases/download/release/installer.sh | sudo sh
 ```
-
-#### Manual Compilation
-
-QuickFetch requires the following Python libraries:
-
-- psutil
-- distro
-- colorama
-- GPUtil
-
-Install the dependencies using pip:
-
+### **Easy Installation (Fedora-based Distros)**
+For Fedora-based Linux distributions.
 ```bash
-pip3 install psutil distro colorama GPUtil
+sudo dnf install curl -y && curl -sSL https://github.com/master2619/quickfetch-rust/releases/download/release/installer.sh | sudo sh
 ```
-
-To compile QuickFetch into a standalone executable using PyInstaller:
-
+### **Easy Installation (Arch-Based Distros)**
+For Arch-based distributions like Manjaro, Arco Linux, etc.
 ```bash
-pip3 install pyinstaller
+sudo pacman -S curl && curl -sSL https://github.com/master2619/quickfetch-rust/releases/download/release/installer.sh | sudo sh
 ```
 
-Ensure PyInstaller is in your PATH:
-
-```bash
-export PATH=$PATH:/home/$USER/.local/bin
-```
-
-Compile the script:
-
-```bash
-pyinstaller --onefile quickfetch.py
-```
-
-Move the compiled binary to `/usr/bin` for permanent installation:
-
-```bash
-sudo mv /home/$USER/quickfetch/dist/quickfetch /usr/bin/quickfetch
-```
-
-### Usage
-
-Simply run the `quickfetch` executable from your terminal:
-
+## **Usage**  
 ```bash
 quickfetch
 ```
 
-### Making QuickFetch Accessible Everywhere
+---
 
-To make the `quickfetch` binary accessible from anywhere in the terminal, add the parent directory of the binary file to your `~/.bashrc` or `~/.profile`:
+## **License**  
+GPL 3.0 License. See the LICENSE file for details.  
 
-```bash
-echo 'export PATH=$PATH:/home/$USER/Downloads/' >> ~/.bashrc
-```
+---
 
-### License
+## **Contributing**  
+Fork the repository and create a pull request with your changes.  
 
-This project is licensed under the GPL 3.0 License. See the [LICENSE](LICENSE) file for details.
+---
 
-### Contributing
+## **Issues & Troubleshooting**  
+🔹 Ensure the binary is in `/usr/bin/`.  
+🔹 Open an **issue** on GitHub for help.  
 
-Contributions are welcome! Please fork the repository and create a pull request with your changes.
+---
 
-### Issues
-
-If you encounter any issues or have suggestions for improvements, please open an issue on the [GitHub repository](https://github.com/master2619/quickfetch).
-
-## Acknowledgements
-
-- Inspired by Neofetch
-- Uses psutil for system information
-- Uses distro for Linux distribution detection
-- Uses GPUtil for GPU information
-- Uses colorama for colored terminal output
+## **Acknowledgements**  
+- **Inspired by Neofetch**  
